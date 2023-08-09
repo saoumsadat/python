@@ -7,7 +7,8 @@ user_choices = []   #user choices will be added to the list
 guessed = False    #it will turn true if guessed correctly
 
 #choosing a word
-chosen_word = random.choice(word_list)
+chosen_word = (random.choice(word_list)).upper()
+# chosen_word = "dish washer";
 
 #getting number of tries from the user
 num_tries = int(input("Enter number of tries: "))
@@ -23,10 +24,18 @@ for x in range(0, num_tries):
 
     #generating display word
     for char in range(0, len(chosen_word)):
-        if chosen_word[char] in user_choices:
-            displayed_word += displayed_word.join(chosen_word[char])   #adding the letter if it is in the choices
-        else:
-            displayed_word += displayed_word.join("_")  #otherwise adding "_"
+
+        #adding the letter if it is in the choices
+        if chosen_word[char] in user_choices:   
+            displayed_word += displayed_word.join(chosen_word[char])   
+        
+        #adding space or dash
+        elif chosen_word[char] == "-" or chosen_word[char] == " ":  
+            displayed_word += displayed_word.join(chosen_word[char])
+        
+        #otherwise adding "_"
+        else:   
+            displayed_word += displayed_word.join("_")  
     
     print(displayed_word)
 
@@ -35,7 +44,7 @@ for x in range(0, num_tries):
         guessed = True
         break
 
-    user_choices.append(input("your choice:"))  #getting a choice and add to the list
+    user_choices.append((input("your choice:")).upper())  #getting a choice and adding to the list
 
     print("Tries left: %d" % ((num_tries - x) - 1))    #displaying how many tries are left
 
