@@ -1,6 +1,8 @@
 import random
 from words import word_list
 
+print("Welcome to hangman!")
+
 user_choices = []   #user choices will be added to the list
 guessed = False    #it will turn true if guessed correctly
 
@@ -11,7 +13,7 @@ chosen_word = random.choice(word_list)
 num_tries = int(input("Enter number of tries: "))
 
 #uncomment this line to see the word
-print(chosen_word)
+# print(chosen_word)
 
 for x in range(0, num_tries):
     displayed_word = ""
