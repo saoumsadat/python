@@ -44,7 +44,7 @@ for x in range(0, num_tries):
         guessed = True
         break
 
-    user_choices.append((input("your choice:")).upper())  #getting a choice and adding to the list
+    user_choices.append((input("your choice: ")).upper())  #getting a choice and adding to the list
 
     print("Tries left: %d" % ((num_tries - x) - 1))    #displaying how many tries are left
 
